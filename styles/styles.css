@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {               /* ? asi se crean las varibles en Css */
+  --yellow: #ffd602;
+  --red: #d5040a;
+  --blue: #036cb6;
+}
 body{
   height: 100vh;
   overflow: hidden; /* * con esto le decimos que no se salga ningun elemento de nuestra pantalla */
@@ -10,10 +15,59 @@ body{
 .page { 
   position: relative; /* ! Esta es el ancla que le sirve a position:absolute */
   height: 100vh;
+  width: 100%;
 }
 .container { 
   position: absolute;
   z-index: 1;
+
+  display: grid;            /* * Aqui dividimos el layout de nuestra pagina */
+  grid-template-columns: 55% 45%; /* se crean 2 columan del 55% y del 45% del with total */
+  grid-template-rows: 20% 50% 30%; /* 3 columnas divididas con los valores asignados */
+  grid-template-areas: "nav      aside" 
+                       "section  aside"
+                       "footer   aside";
+  height: 100%;
+  width: 100%;
+}
+.navbar { 
+  background: lightpink;
+  grid-area: nav; /* con esto le decimos que parte del grid-templete-are se le asigna a este bloque */
+}
+.navbar__content { 
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 0 0 80px;
+
+  animation: 2s navbar 0.5s ease-in-out; /* ! 2s de delay, nombre de la animacion, duracion, aceleracion */
+}
+@keyframes navbar {
+  0%{ 
+    transform: translateY(-200px); /* ? comenzara desde arriba a -200px de donde finalizara */
+  }
+  100%{ 
+    transform: translateY((0px));
+  }
+}
+.navbar__content img { 
+  width: 50px;
+}
+.navbar__content ul { 
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 0;
+  width: 450px;
+}
+.navbar__content ul li a{ 
+  text-decoration: none;
+  color: var(--red);
+  font-weight: 100;
+}
+.navbar__content ul li a:hover { 
+  text-decoration: underline;
+  color: var(--yellow);
 }
 .Loader {
   background: white;
@@ -24,7 +78,7 @@ body{
   justify-content: center;
   position: absolute; /* ! Recuerda que el absolute esta anclado al relative*/;
   z-index: 3;
-  animation: loader 2s forwards;
+  animation: loader 0.2s forwards; /* TODO: Cambiar a 2 segundos cuando terminemos de maquetar!!! */
 }
 @keyframes loader { /* keyframes van ligados al nombre del animation de arriba */
   0% { 
