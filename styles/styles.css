@@ -12,11 +12,15 @@ body{
   height: 100vh;
   overflow: hidden; /* * con esto le decimos que no se salga ningun elemento de nuestra pantalla */
 }
+
+
 .page { 
   position: relative; /* ! Esta es el ancla que le sirve a position:absolute */
   height: 100vh;
   width: 100%;
 }
+
+
 .container { 
   position: absolute;
   z-index: 1;
@@ -30,9 +34,12 @@ body{
   height: 100%;
   width: 100%;
 }
+
+
 .navbar { 
   background: lightpink;
   grid-area: nav; /* con esto le decimos que parte del grid-templete-are se le asigna a este bloque */
+  display: flex;
 }
 .navbar__content { 
   display: flex;
@@ -69,6 +76,40 @@ body{
   text-decoration: underline;
   color: var(--yellow);
 }
+
+
+.main-content { 
+  display: flex;
+  grid-area: section;
+  flex-direction: column; /* ! con esto le cambiamos la direccion a los ejes a display:flex */
+  justify-content: center;
+  margin-left: 30px;
+ 
+  animation: 2s main-content ; /* * asi hacemos la animacion de que baje el texto */
+}
+.main-content p:first-child { 
+  margin: 0 0 -16px 44px; /* ? asi dejamos mas cerca el primer parrafo con el h1 */
+  font-size: 36px;
+  font-weight: 300;
+}
+.main-content h1 { 
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 28px 0;
+}
+.main-content p:last-child { 
+  font-weight: 100;
+  width: 60%;
+}
+@keyframes main-content {
+  0%{ 
+    transform: translateY(-500px); /* ? comenzara desde arriba a -200px de donde finalizara */
+  }
+  100%{ 
+    transform: translateY((0px));
+  }
+}
+
 .Loader {
   background: white;
   width: 100%;
