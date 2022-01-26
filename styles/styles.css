@@ -166,6 +166,46 @@ body{
   z-index: 1;
 }
 
+.footer { 
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+
+  background: var(--yellow);
+  border-radius: 0 80px 0 0;
+
+  animation: 2.5s footer 0.5s ease-in-out; /* ! 2s de delay, nombre de la animacion, duracion, aceleracion */
+}
+@keyframes footer {
+ 0% { 
+   transform: translateY(100%); /*  ! 100% significa que es desplazamiento en Y del mismo tamaño de contenedor */
+ } 
+ 100% { 
+   transform: translateY(0px);
+ }
+}
+.footer div { 
+  height: 50%;
+  width: 130px;
+  background: var(--blue);
+  border-radius: 40px 40px 0 0;
+  display: flex;
+  justify-content: center;
+}
+.footer div:hover img {  /*  ? cuando se haga hover en el div sucedera algo en la imagen */
+  cursor: pointer;
+  transform: translateY(-20px) scale(1.4);
+  transition: transform 0.3s ease-in-out; /* * aqui creamos el delay de SALIDA para que la transicion sea mas suave */
+
+}
+.footer div img { 
+  width: 160px;
+  position: absolute; /* ! IMPORTANTE para que las imagenes sobresalgan sobre los div de color Azul */
+  bottom: 50px;
+  transform: translateY(0px) scale(1); /* * En estas 2 lineas creamos el delay de REGRESO */
+  transition: transform 0.5s ease-in-out;   /*  ! Se cambia el tiempo de duracion de 0.3 a 0.5 para darle un mejor efecto al regresar */
+}
+
 
 .Loader {
   background: white;
