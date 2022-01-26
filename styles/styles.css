@@ -264,16 +264,29 @@ body{
   }
 }
 
-.hidden {         /* asi escondemos el modal  */
-  display: none;
-}
-.visible { 
-  display: grid;
-}
 .Modal { 
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
   z-index: 4;
+  
+  display: grid;
+  place-items: center; /* * Esto me alinea horizontal como verticalmente */
+}
+.hidden {         /* asi escondemos el modal  */
+  display: none;
+}
+.visible { 
+  display: grid;
+}
+.modal__content {
+  background: white;
+  width: 50%;
+  height: 50%;
+
+}
+.modal__content img { 
+  width: 30px;
+  height: 30px;
 }
