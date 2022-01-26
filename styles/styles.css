@@ -284,9 +284,15 @@ body{
   background: white;
   width: 50%;
   height: 50%;
-
+  display: flex;
+  justify-content: flex-end;
 }
-.modal__content img { 
+.modal__content .modal__content--close { 
   width: 30px;
   height: 30px;
+}
+.modal__content--slider { 
+  width: 300px;
+  height: 200px;
+  transform-style: preserve-3d;
 }
