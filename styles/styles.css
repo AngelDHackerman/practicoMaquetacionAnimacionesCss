@@ -317,16 +317,24 @@ body{
 /* cuando radio-1 este chequeado afectara a .cards #card1 dando le los estilos que se pasan por abajo */
 #radio-1:checked ~ .cards #card-1,
 #radio-2:checked ~ .cards #card-2,
-#radio-3:checked ~ .cards #card-3 { /* Este símbolo en css funciona muy parecido a + con la diferencia que selecciona el ítem que esté inmediatamente después y todos los siguientes. */
+#radio-3:checked ~ .cards #card-3,
+#radio-4:checked ~ .cards #card-4 { /* Este símbolo en css funciona muy parecido a + con la diferencia que selecciona el ítem que esté inmediatamente después y todos los siguientes. */
   transform: translateX(0) scale(1.2);
   opacity: 1;
   z-index: 1;
 }
 /* ? con esto tiramos la card N.2 a los costados cuando la N.1 este seleccionada */
-#radio-1:checked ~ .cards #card-2,
-#radio-2:checked ~ .cards #card-2,
-#radio-3:checked ~ .cards #card-3 { /* Este símbolo en css funciona muy parecido a + con la diferencia que selecciona el ítem que esté inmediatamente después y todos los siguientes. */
+#radio-1:checked ~ .cards #card-3,
+#radio-2:checked ~ .cards #card-1,
+#radio-3:checked ~ .cards #card-2 { /* Este símbolo en css funciona muy parecido a + con la diferencia que selecciona el ítem que esté inmediatamente después y todos los siguientes. */
   transform: translateX(40%) scale(0.8);
+  opacity: 0.5;
+  z-index: 0;
+}
+#radio-1:checked ~ .cards #card-2,
+#radio-2:checked ~ .cards #card-3,
+#radio-3:checked ~ .cards #card-1 { 
+  transform: translateX(-40%) scale(0.8);
   opacity: 0.5;
   z-index: 0;
 }
